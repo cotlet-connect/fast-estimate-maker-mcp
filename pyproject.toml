@@ -1,0 +1,29 @@
+[project]
+name = "fast-estimate-maker-mcp"
+version = "1.1.0"
+description = "Connect Fast Estimate Maker to ChatGPT, Claude and any AI agent through Cotlet.dev, a hosted MCP server. No Fast Estimate Maker API key needed."
+readme = "README.md"
+license = "Elastic-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Cotlet.dev", email = "contact@cotlet.dev" }]
+keywords = ["fast estimate maker", "fast estimate maker api", "fast estimate maker mcp", "mcp server", "claude", "chatgpt", "ai agent", "cotlet"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Office/Business"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://cotlet.dev/integrations/fast-estimate-maker-api-mcp-server?utm_source=pypi&utm_medium=package&utm_campaign=fast-estimate-maker"
+Source = "https://github.com/cotlet-connect/fast-estimate-maker-mcp"
+
+[project.scripts]
+fast-estimate-maker-mcp = "fast_estimate_maker_agent:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel.force-include]
+"fast_estimate_maker_agent.py" = "fast_estimate_maker_agent.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["fast_estimate_maker_agent.py", "README.md", "LICENSE", "mcp.json", "Dockerfile", "glama.json", "skills", "examples", ".cursor"]
